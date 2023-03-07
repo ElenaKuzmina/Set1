@@ -10,6 +10,86 @@ namespace Множество
     {
         static void Main(string[] args)
         {
+            string[] planets1 = { "Mercury", 
+                "Venus", "Neptune",
+                "Earth", "Jupiter" };
+            string[] planets2 = { "Mercury", 
+                "Earth", 
+                "Mars", "Jupiter" };
+            string[] MN = { };//пустое множество
+            Console.WriteLine("объединение множеств");
+            // объединение множеств
+            IEnumerable<string> result = planets1.Union(planets2);
+            Print_mnozh(result);
+            Console.WriteLine(result);
+
+            Console.WriteLine("пересечение множеств");
+            // пересечение множеств
+
+            var result1 = planets1.Intersect(planets2);
+
+            Print_mnozh(result1);
+            Console.WriteLine($"Количество элементов в множестве = {result1.Count()}");
+            Console.WriteLine("разность множеств");
+            // разность множеств
+
+            var result2 = planets1.Except(planets2);
+            // 
+            Print_mnozh(result2);
+
+            Console.WriteLine("простое объединение множест");
+            // простое объединение множеств
+
+            var result3 = planets1.Concat(planets2);
+            Print_mnozh(result3);
+            result3 = result3.Distinct();
+            Console.WriteLine("Без повторов");
+            Print_mnozh(result3);
+
+            int[] mn = { 1, 3, 5, 7 };
+
+            //добавление элемента в множество
+            IEnumerable<int> mn1 = Insert_elem(mn);
+            Console.WriteLine("Множество:");
+            foreach (int i in mn1)
+                Console.Write($"{i}  ");
+
+            //Агрегирующие функции
+            Console.WriteLine();
+            Console.WriteLine("Агрегирующие функции");
+            Console.WriteLine($"Сумма: {mn1.Sum()}");//25
+            Console.WriteLine($"Среднее арифметическое: {mn1.Average()}");//5
+            Console.WriteLine($"Минимум: {mn1.Min()}");//1
+            Console.WriteLine($"Максимум: {mn1.Max()}");//9
+            Console.WriteLine($"Количество: {mn1.Count()}");//5
+            Console.WriteLine($"Содержит 5? {mn1.Contains(5)}");//true
+            Console.WriteLine($"Содержит 6? {mn1.Contains(6)}");//false
+            Console.WriteLine("Для выхода из программы нажмите Y");
+            Exit();
+
+        }
+
+        private static IEnumerable<int> Insert_elem(int[] mn)
+        {
+            int[] a = { int.Parse(Console.ReadLine()) };//9
+            var mn1 = mn.Union(a);
+            return mn1;
+        }
+
+        private static void Exit()
+        {
+            ConsoleKeyInfo cki = Console.ReadKey();
+            while (cki.Key != ConsoleKey.Y)
+            {
+                Console.WriteLine("Вы не нажали Y");
+                cki = Console.ReadKey(false);
+            }
+        }
+
+        private static void Print_mnozh(IEnumerable<string> res)
+        {
+            foreach (string s in res)
+                Console.WriteLine(s);
         }
     }
 }
