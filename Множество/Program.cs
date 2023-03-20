@@ -150,7 +150,7 @@ namespace Множество
             //}
 
         }
-private static void PrintSet(IEnumerable<char> mas)
+        private static void PrintSet(IEnumerable<char> mas)
         {
             foreach (char x in mas)
             {
@@ -166,7 +166,7 @@ private static void PrintSet(IEnumerable<char> mas)
             }
         }
 
-        private static void printSet(IEnumerable<int> mas)
+        private static void PrintSet(IEnumerable<int> mas)
         {
             foreach (int x in mas)
             {
