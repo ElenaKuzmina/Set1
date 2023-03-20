@@ -12,50 +12,55 @@ namespace Множество
         static void Main(string[] args)
         { //Использование методов множеств
           //для работы с коллекциями (массивами)
-            int[] mas1 = { 15, 25, -56, 1, 0, 
-                -100, 555, 79, 333, -1000 };
-            int[] mas2 = { -56, 0, -100, 666, 
-                777, -999, 2332 };
+            //int[] mas1 = { 15, 25, -56, 1, 0, 
+            //    -100, 555, 79, 333, -1000 };
+            //int[] mas2 = { -56, 0, -100, 666, 
+            //    777, -999, 2332 };
 
-            printArray(mas1);
-            printArray(mas2);
-            //#1 Объединение  - Union
-            IEnumerable<int> masUnion = mas1.Union(mas2);
-            printSet(masUnion);
-            //#2 Пересечение  - Intersect
-            IEnumerable<int> masIntersect = mas1.Intersect(mas2);
-            printSet(masIntersect);
-            //#3 Разность - Except
-            IEnumerable<int> masExcept = mas1.Except(mas2);
-            printSet(masExcept);
-            IEnumerable<int> masExcept2 = mas2.Except(mas1);
-            printSet(masExcept2);
+            //printArray(mas1);
+            //printArray(mas2);
+            ////#1 Объединение  - Union
+            //IEnumerable<int> masUnion = mas1.Union(mas2);
+            //printSet(masUnion);
+            ////#2 Пересечение  - Intersect
+            //IEnumerable<int> masIntersect = mas1.Intersect(mas2);
+            //printSet(masIntersect);
+            ////#3 Разность - Except
+            //IEnumerable<int> masExcept = mas1.Except(mas2);
+            //printSet(masExcept);
+            //IEnumerable<int> masExcept2 = mas2.Except(mas1);
+            //printSet(masExcept2);
 
-            //с.82, №1
-            string[] flower = {"Анжелика", "Виктория",
-            "Гагарин", "Катарина", "Юбилейная", "AveMaria"};//исходное множество
-            string[] flower1 = {"Анжелика", "Виктория",
-            "Гагарин", "Катарина", "Юбилейная", 
-                "Красная", "Чайная", "Принц"};
-            string[] flower2 = { "Виктория",
-            "Гагарин", "Катарина",  "Красная",
-                "Чайная",  "BluSky"};
-            string[] flower3 = {"Анжелика", "Виктория",
-             "Юбилейная", "RedFair", "Чайная", "Принц"};
-            //есть у каждого
-            var rez1 = flower.Intersect(flower1).Intersect(flower2).Intersect(flower3);
-            Console.WriteLine("Сорта роз у каждого");
-            PrintSet(rez1);
-            //есть хотя бы у одного
-            var rez2 = flower1.Union(flower2).Union(flower3).Intersect(flower);
-            Console.WriteLine("Сорта роз хотя бы у одного");
-            PrintSet(rez2);
-            //нет ни у одного
-            var rez3 = flower.Except(flower1).Except(flower2).Except(flower3);
-            Console.WriteLine("Сорта роз нет ни у одного");
-            PrintSet(rez3);
+            ////с.82, №1
+            //string[] flower = {"Анжелика", "Виктория",
+            //"Гагарин", "Катарина", "Юбилейная", "AveMaria"};//исходное множество
+            //string[] flower1 = {"Анжелика", "Виктория",
+            //"Гагарин", "Катарина", "Юбилейная", 
+            //    "Красная", "Чайная", "Принц"};
+            //string[] flower2 = { "Виктория",
+            //"Гагарин", "Катарина",  "Красная",
+            //    "Чайная",  "BluSky"};
+            //string[] flower3 = {"Анжелика", "Виктория",
+            // "Юбилейная", "RedFair", "Чайная", "Принц"};
+            ////есть у каждого
+            //var rez1 = flower.Intersect(flower1).Intersect(flower2).Intersect(flower3);
+            //Console.WriteLine("Сорта роз у каждого");
+            //PrintSet(rez1);
+            ////есть хотя бы у одного
+            //var rez2 = flower1.Union(flower2).Union(flower3).Intersect(flower);
+            //Console.WriteLine("Сорта роз хотя бы у одного");
+            //PrintSet(rez2);
+            ////нет ни у одного
+            //var rez3 = flower.Except(flower1).Except(flower2).Except(flower3);
+            //Console.WriteLine("Сорта роз нет ни у одного");
+            //PrintSet(rez3);
 
 
+
+            string line = Console.ReadLine();//строка с клавиатуры
+            char[] chars = line.ToCharArray(); //множество символов строки
+            char[] glasletter = { 'a', 'e', 'u', 'i', 'o','y'};//множество гласных букв
+            Console.WriteLine(chars.Intersect(glasletter).Count());//количество гласных в исходной строке
             Console.ReadKey();
             //    string[] planets1 = { "Mercury", 
             //        "Venus", "Neptune",
