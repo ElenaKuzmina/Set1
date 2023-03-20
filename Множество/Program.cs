@@ -58,10 +58,15 @@ namespace Множество
 
 
             string line = Console.ReadLine();//строка с клавиатуры
-            char[] chars = line.ToCharArray(); //множество символов строки
+            char[] chars = line.ToCharArray(); //массив символов строки
             char[] glasletter = { 'a', 'e', 'u', 'i', 'o','y'};//множество гласных букв
             Console.WriteLine(chars.Intersect(glasletter).Count());//количество гласных в исходной строке
+           PrintSet(chars.Intersect(glasletter));
+           
             Console.ReadKey();
+           
+            
+            
             //    string[] planets1 = { "Mercury", 
             //        "Venus", "Neptune",
             //        "Earth", "Jupiter" };
@@ -145,7 +150,14 @@ namespace Множество
             //}
 
         }
-
+private static void PrintSet(IEnumerable<char> mas)
+        {
+            foreach (char x in mas)
+            {
+                Console.Write($"{x} ");
+            }
+            Console.WriteLine();
+        }
         private static void PrintSet(IEnumerable<string> rez1)
         {
             foreach (var fl in rez1)
@@ -162,7 +174,7 @@ namespace Множество
             }
             Console.WriteLine();
         }
-
+        
         private static void printArray(int[] mas)
         {
             for (int i = 0; i < mas.Length; i++)
